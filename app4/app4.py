@@ -1,13 +1,15 @@
 # Flask is a class with good website making capeabilities
-from flask import Flask
-
-# creating app variable
+from flask import Flask, render_template
+# creating Flask variable
 app=Flask(__name__)
 
-# 
 @app.route('/')
 def home():
-    return "Website content goes here!"
+    return render_template("home.html")
+
+@app.route('/about/')
+def about():
+    return render_template("about.html")
 
 if __name__=="__main__":
     app.run(debug=True)
